@@ -40,6 +40,14 @@ domain → folder mapping. Don't recreate this structure — it already exists.
   guess: fetch `https://claudecertificationguide.com/learn` to check whether
   the site's domain structure changed, and confirm with the user before
   inventing a new folder.
+- **Never guess a module's URL slug from its title.** They frequently
+  differ — e.g. module "1.2 Multi-Agent Orchestration"'s real slug is
+  `1-2-orchestration-patterns`, not `1-2-multi-agent-orchestration`. If you
+  weren't given the exact URL (e.g. you're inferring "the next module" from a
+  "related lesson" name, or a user just says "do 1.2"), fetch the domain
+  index page (`https://claudecertificationguide.com/learn/<domain-slug>`)
+  first and read the real link for that module number, or fetch your guessed
+  URL and treat a 404 as the signal to go do that instead of retrying variants.
 - Convert the module-slug to a filename: replace `-` with `_`, append
   `.ipynb` (e.g. `1-2-multi-agent-orchestration` → `1_2_multi_agent_orchestration.ipynb`).
 - Target path: `<repo-root>/<domain-folder>/src/<module-file>.ipynb`.
